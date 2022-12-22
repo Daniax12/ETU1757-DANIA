@@ -6,7 +6,7 @@ Objectif: Simulation d'un systeme de gestion de base de donnees avec socket (SGB
 Langage: JAVA avec SWING
 
 **************************************************************
-File content: Client - Server - Readme.txt
+File content: Client - Server - Video 
 **************************************************************
 
 SERVER : Contenant
@@ -29,6 +29,37 @@ Compilation *.java (Server and Client)
 Execution
 Server => java view.Main
 Client => java client.Client
+
+
+
+*****************************************************************
+Resume 
+*****************************************************************
+Mode de stockage:
+Directory Server > DATABASE > (Liste des databases de chaque utilisateur) > (Liste des tables de chaque database)
+
+Interface graphique Server:
+Pour demarrer ou stopper le server
+
+Interface graphique Client:
+	- Insertion IP (A condition que le Client et le Server sont sur le meme reseau
+	- Creation nouveau utilisateur (creation nouveau directory pour le nouveau utilisateur)
+	- Login
+	- Deconnection
+	
+Backend:
+Modele : MVC
+Les classes les plus importantes:
+	- Server > 
+		- Server.class => extends Thread afin de pouvoir ecouter en meme temps plusieurs clients et de gerer chaque client en fonction de leur requete
+		- Table.class => Table a retourner vers le Client (titre de colonnes et data)
+		- Skl.class => analyse des vocabulaires du requete de client => retour Table
+	- Client >
+		- tous les listeners en tant que controller qui envoient les requetes et ecoutent les reponses venant du Server
+	- Server et Client >
+		- PacketRequest.class => implements Serializable 
+		- PacketResponse.class => implements Serializable 
+		Tous deux sont les objects qui sont envoyes dans les ObjectOutputStream et ObjectInputStream afin de savoir quels sont les types d'action et de reponse venant du Client/Server
 
 ****************************************************************
 Toutes les requetes :
