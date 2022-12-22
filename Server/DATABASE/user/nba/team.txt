@@ -1,0 +1,1 @@
+team//idteam;nameteam;//1;Lakers;//2;Clippers;//
